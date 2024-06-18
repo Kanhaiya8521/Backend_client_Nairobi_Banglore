@@ -6,7 +6,7 @@ const sendErrorToDev = function (error: any, res: Response): any {
   return res.status(error.statusCode).json({
     success: error.success || false,
     error,
-    message: "error.message",
+    message: error.message,
     stack: error.stack,
   });
 };

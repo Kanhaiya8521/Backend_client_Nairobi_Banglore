@@ -19,8 +19,9 @@ model User {
   mid_name String?
   last_name String
   image String?
-  email String
-  phone Int
+  email String @unique
+  phone String @unique
+  password String
   social_link String?
   age Int?
   tob String?

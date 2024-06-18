@@ -6,6 +6,7 @@ import "dotenv/config"
 require("dotenv").config();
 import globalErrorHandler from "./src/controllers/error.controller"
 // const port = 3000;
+app.use(express.json());
 routes(router);
 app.use(
   "/api/v1",

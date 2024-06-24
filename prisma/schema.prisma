@@ -13,16 +13,65 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id Int @id @default(autoincrement())
+model Users {
+  id                    String                    @id @unique @default(uuid())
+  first_name            String
+  mid_name              String?
+  last_name             String
+  user_name             String                 @unique
+  image                 String?
+  email                 String                 @unique
+  phone                 String                 @unique
+  password              String
+  social_link           String?
+  age                   Int?
+  tob                   String?
+  referral_code         String?                @unique
+  referral_by           String?
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime               @updatedAt
+  UsersOTPVerifications UsersOTPVerifications?
+}
+
+model Admins {
+  id         String   @id @unique @default(uuid())
   first_name String
-  mid_name String?
-  last_name String
-  image String?
-  email String @unique
-  phone String @unique
-  password String
-  social_link String?
-  age Int?
-  tob String?
+  last_name  String
+  user_name  String   @unique
+  email      String   @unique
+  password   String
+  avatar     String?
+  status     Boolean  @default(false)
+  store_code String?  @unique
+  store      String?
+  created_by String?
+  is_deleted Boolean  @default(false)
+  role       String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model UsersOTPVerifications {
+  id                    String            @id @unique @default(uuid())
+  is_email_verified     Boolean           @default(false)
+  email_verified_at     DateTime?
+  is_phone_verified     Boolean           @default(false)
+  phone_verified_at     DateTime?
+  is_logged_in_verified Boolean           @default(false)
+  logged_in_verified_at DateTime?
+  verification_code     String
+  verification_type     VERIFICATION_TYPE
+  verification_code_at  DateTime
+  status                Boolean           @default(false)
+  user_id               String            @unique
+  Users                 Users             @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+}
+
+enum VERIFICATION_TYPE {
+  LOGIN
+  FORGET_PASSWORD
+  EMAIL_VERIFICATION
+  PHONE_VERIFICATION
 }

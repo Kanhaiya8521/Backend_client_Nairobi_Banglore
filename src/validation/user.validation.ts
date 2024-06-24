@@ -22,6 +22,15 @@ export const userSignupValidation =  (
         "string.empty": "last_name can't be empty",
         "any.required": "last_name is required",
       }),
+    user_name: Joi.string()
+      .required()
+      .trim()
+      // .regex(/^[a-zA-Z]\w{3,31}$/)
+      .messages({
+        "string.base": "user_name should be string",
+        "string.empty": "user_name can't be empty",
+        "any.required": "user_name is required",
+      }),
     phone: Joi.string()
       .required()
       .trim()
@@ -53,6 +62,15 @@ export const userSignupValidation =  (
         "string.base": "password should be string",
         "string.empty": "password can't be empty",
         "any.required": "password is required",
+      }),
+    confirm_password: Joi.string()
+      // .required()
+      .trim()
+      // .regex(/^[a-zA-Z]\w{3,31}$/)
+      .messages({
+        "string.base": "confirm_password should be string",
+        "string.empty": "confirm_password can't be empty",
+        // "any.required": "password is required",
       }),
   });
   return schema.validate(data);

@@ -19,7 +19,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "joi": "^17.13.1",
-    "typescript": "^5.4.5"
+    "redis": "^4.6.15",
+    "redis-om": "^0.4.6"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -27,6 +28,7 @@
     "@types/node": "^20.12.7",
     "nodemon": "^3.1.0",
     "prisma": "^5.15.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   }
 }

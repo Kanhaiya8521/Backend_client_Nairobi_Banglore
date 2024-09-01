@@ -8,7 +8,7 @@
     "start": "node build/server.js",
     "start:migrate": "bash scripts/create_admin.sh",
     "build": "npx tsc",
-    "prepare": "npx husky init"
+    "prepare": "husky"
   },
   "author": "Kanna",
   "license": "ISC",

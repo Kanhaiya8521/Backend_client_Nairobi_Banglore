@@ -12,7 +12,6 @@ import {cronJob} from "./src/jobs"
 // https://github.com/sendgrid/sendgrid-nodejs
 // const sgMail = require('@sendgrid/mail')
 
-
 // const port = 3000;
 app.use(express.json());
 routes(router);

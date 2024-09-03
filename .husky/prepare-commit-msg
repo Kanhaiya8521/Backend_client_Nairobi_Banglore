@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "${CI_COMMIT_MESSAGE}" | npx --no -- commitlint --edit ${1}

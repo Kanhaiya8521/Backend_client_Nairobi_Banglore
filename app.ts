@@ -29,7 +29,4 @@ app.get("/", (req: Request, res: Response) => {
 app.use(globalErrorHandler);
 cronJob.start();
 
-
-console.log("testing1");
-
 export default app;
